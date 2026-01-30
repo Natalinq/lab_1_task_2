@@ -1,0 +1,58 @@
+# Qt Creator
+*.pro.user
+*.pro.user.*
+*.autosave
+*.files
+*.includes
+
+# Build directories
+build/
+build-*/
+*-build-*/
+debug/
+release/
+CMakeFiles/
+CMakeCache.txt
+Makefile*
+
+# Compiled files
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.app
+*.ilk
+*.pdb
+*.idb
+*.exp
+*.lib
+*.manifest
+
+# Qt generated files
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+*.qrc.depends
+*.qrc.timestamp
+
+# IDE
+.vscode/
+.idea/
+
+# Clangd cache
+.qtc_clangd/
+.clangd/
+compile_commands.json
+
+# OS files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
