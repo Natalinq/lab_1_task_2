@@ -10,6 +10,7 @@ CONFIG += c++17
 
 HEADERS += \
     circle.h \
+    heart.h \
     hexagon.h \
     polygon.h \
     quadrilateral.h \
@@ -18,10 +19,12 @@ HEADERS += \
     shape.h \
     mainwindow.h \
     square.h \
+    star.h \
     triangle.h
 
 SOURCES += \
     circle.cpp \
+    heart.cpp \
     hexagon.cpp \
     polygon.cpp \
     quadrilateral.cpp \
@@ -31,6 +34,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     square.cpp \
+    star.cpp \
     triangle.cpp
 
 FORMS += \

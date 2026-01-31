@@ -5,8 +5,8 @@
 
 class Rhombus : public Quadrilateral {
 private:
-    double sideLength;  ///< Длина стороны (все стороны равны)
-    double acuteAngle;  ///< Острый угол в градусах (0 < угол < 90°)
+    double sideLength;
+    double acuteAngle;
 
     void updateParameters();
 
@@ -14,14 +14,13 @@ public:
     Rhombus(double x, double y, double side, double angle = 60.0);
     Rhombus(double x, double y, double diag1, double diag2, bool useDiagonals);
 
-    // Геттеры параметров (переименовано во избежание конфликта с базовым классом)
-    double getSide() const { return sideLength; }  // ← БЫЛО: getSideLength() → СТАЛО: getSide()
+    double getSide() const { return sideLength; }
     double getAcuteAngle() const { return acuteAngle; }
     double getObtuseAngle() const { return 180.0 - acuteAngle; }
     double getDiagonal1() const;
     double getDiagonal2() const;
 
-    void setSide(double side);  // ← БЫЛО: setSideLength() → СТАЛО: setSide()
+    void setSide(double side);
     void setAcuteAngle(double angle);
 
     void move(double dx, double dy) override;

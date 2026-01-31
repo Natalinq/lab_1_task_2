@@ -5,11 +5,10 @@
 
 Square::Square(double x, double y, double s)
     : Quadrilateral(
-          // Вершины квадрата строятся симметрично относительно центра (против часовой стрелки):
-          QPointF(x - s / 2.0, y - s / 2.0),  // v0: верхний левый
-          QPointF(x + s / 2.0, y - s / 2.0),  // v1: верхний правый
-          QPointF(x + s / 2.0, y + s / 2.0),  // v2: нижний правый
-          QPointF(x - s / 2.0, y + s / 2.0)   // v3: нижний левый
+          QPointF(x - s / 2.0, y - s / 2.0),
+          QPointF(x + s / 2.0, y - s / 2.0),
+          QPointF(x + s / 2.0, y + s / 2.0),
+          QPointF(x - s / 2.0, y + s / 2.0)
           ),
     side(s)
 {
@@ -21,7 +20,6 @@ Square::Square(double x, double y, double s)
     }
 
 #ifdef QT_DEBUG
-    // Проверка инвариантов при создании
     bool allSidesEqual = true;
     double s0 = Quadrilateral::getSideLength(0);
     for (int i = 1; i < 4; ++i) {
@@ -50,15 +48,14 @@ Square::Square(double x, double y, double s)
 
 Square::Square(const QPointF &topLeft, const QPointF &bottomRight)
     : Quadrilateral(
-          topLeft,                                      // v0: верхний левый
-          QPointF(bottomRight.x(), topLeft.y()),        // v1: верхний правый
-          bottomRight,                                  // v2: нижний правый
-          QPointF(topLeft.x(), bottomRight.y())         // v3: нижний левый
+          topLeft,
+          QPointF(bottomRight.x(), topLeft.y()),
+          bottomRight,
+          QPointF(topLeft.x(), bottomRight.y())
           )
 {
-    // Проверяем, что это действительно квадрат (ширина == высота)
-    double width = Quadrilateral::getSideLength(0);   // Верхняя сторона
-    double height = Quadrilateral::getSideLength(1);  // Правая сторона
+    double width = Quadrilateral::getSideLength(0);
+    double height = Quadrilateral::getSideLength(1);
 
     if (std::abs(width - height) > 1e-6) {
         throw std::invalid_argument(
@@ -72,13 +69,9 @@ Square::Square(const QPointF &topLeft, const QPointF &bottomRight)
     }
 
     side = width;
-
-    // Центр масс должен совпадать с центром прямоугольника из точек
-    // (автоматически вычислен в конструкторе Quadrilateral)
 }
 
 void Square::updateSide() {
-    // Пересчитываем сторону как среднее всех 4 сторон
     double s0 = Quadrilateral::getSideLength(0);
     double s1 = Quadrilateral::getSideLength(1);
     double s2 = Quadrilateral::getSideLength(2);
@@ -94,24 +87,17 @@ void Square::setSide(double s) {
             );
     }
 
-    // Масштабируем относительно центра с коэффициентом = новая_сторона / старая_сторона
     double factor = s / side;
     scale(factor, centerX, centerY);
-    // updateSide() вызван внутри scale()
 }
 
 void Square::move(double dx, double dy) {
     Quadrilateral::move(dx, dy);
-    // Сторона не меняется при перемещении
 }
 
 void Square::rotate(double angleDeg, double originX, double originY) {
     Quadrilateral::rotate(angleDeg, originX, originY);
-    updateSide();  // Пересчитываем сторону после поворота
-
-    // Инварианты сохраняются:
-    // - Все стороны остаются равными (поворот сохраняет расстояния)
-    // - Все углы остаются 90° (поворот сохраняет углы)
+    updateSide();
 }
 
 void Square::scale(double factor, double originX, double originY) {
@@ -124,9 +110,6 @@ void Square::scale(double factor, double originX, double originY) {
 
     Quadrilateral::scale(factor, originX, originY);
     side *= factor;
-    // Инварианты сохраняются:
-    // - Все стороны масштабируются одинаково → остаются равными
-    // - Углы не меняются при масштабировании → остаются 90°
 }
 
 bool Square::hasRightAngles(double tolerance) const {

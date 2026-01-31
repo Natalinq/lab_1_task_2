@@ -5,10 +5,10 @@
 
 Rhombus::Rhombus(double x, double y, double side, double angle)
     : Quadrilateral(
-          QPointF(x - side * std::cos(angle * M_PI / 360.0), y),                    // v0: левая вершина
-          QPointF(x, y - side * std::sin(angle * M_PI / 360.0)),                    // v1: верхняя вершина
-          QPointF(x + side * std::cos(angle * M_PI / 360.0), y),                    // v2: правая вершина
-          QPointF(x, y + side * std::sin(angle * M_PI / 360.0))                     // v3: нижняя вершина
+          QPointF(x - side * std::cos(angle * M_PI / 360.0), y),
+          QPointF(x, y - side * std::sin(angle * M_PI / 360.0)),
+          QPointF(x + side * std::cos(angle * M_PI / 360.0), y),
+          QPointF(x, y + side * std::sin(angle * M_PI / 360.0))
           ),
     sideLength(side),
     acuteAngle(angle)
@@ -28,8 +28,7 @@ Rhombus::Rhombus(double x, double y, double side, double angle)
     }
 
 #ifdef QT_DEBUG
-    // Проверка равенства сторон (инвариант ромба)
-    double s0 = Quadrilateral::getSideLength(0);  // ← ЯВНЫЙ ВЫЗОВ БАЗОВОГО МЕТОДА
+    double s0 = Quadrilateral::getSideLength(0);
     double s1 = Quadrilateral::getSideLength(1);
     double s2 = Quadrilateral::getSideLength(2);
     double s3 = Quadrilateral::getSideLength(3);
@@ -43,10 +42,10 @@ Rhombus::Rhombus(double x, double y, double side, double angle)
 
 Rhombus::Rhombus(double x, double y, double diag1, double diag2, bool useDiagonals)
     : Quadrilateral(
-          QPointF(x - diag1 / 2.0, y),      // v0: левая вершина
-          QPointF(x, y - diag2 / 2.0),      // v1: верхняя вершина
-          QPointF(x + diag1 / 2.0, y),      // v2: правая вершина
-          QPointF(x, y + diag2 / 2.0)       // v3: нижняя вершина
+          QPointF(x - diag1 / 2.0, y),
+          QPointF(x, y - diag2 / 2.0),
+          QPointF(x + diag1 / 2.0, y),
+          QPointF(x, y + diag2 / 2.0)
           )
 {
     Q_UNUSED(useDiagonals);
@@ -58,7 +57,6 @@ Rhombus::Rhombus(double x, double y, double diag1, double diag2, bool useDiagona
             );
     }
 
-    // Вычисляем сторону и острый угол из диагоналей
     sideLength = std::sqrt((diag1 / 2.0) * (diag1 / 2.0) + (diag2 / 2.0) * (diag2 / 2.0));
     acuteAngle = 2.0 * std::atan2(diag2, diag1) * 180.0 / M_PI;
 
@@ -68,7 +66,6 @@ Rhombus::Rhombus(double x, double y, double diag1, double diag2, bool useDiagona
 }
 
 void Rhombus::updateParameters() {
-    // Используем ЯВНЫЙ ВЫЗОВ базового метода для получения длин сторон
     double s0 = Quadrilateral::getSideLength(0);
     double s1 = Quadrilateral::getSideLength(1);
     double s2 = Quadrilateral::getSideLength(2);
@@ -95,7 +92,7 @@ double Rhombus::getDiagonal2() const {
     return getDiagonalLength(1);
 }
 
-void Rhombus::setSide(double side) {  // ← ИСПРАВЛЕНО ИМЯ МЕТОДА
+void Rhombus::setSide(double side) {
     if (side <= 0.0) {
         throw std::invalid_argument(
             "Сторона ромба должна быть положительной. Передано: " +
