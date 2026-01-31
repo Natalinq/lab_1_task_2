@@ -10,14 +10,18 @@ CONFIG += c++17
 
 HEADERS += \
     circle.h \
+    polygon.h \
     shape.h \
-    mainwindow.h
+    mainwindow.h \
+    triangle.h
 
 SOURCES += \
     circle.cpp \
+    polygon.cpp \
     shape.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    triangle.cpp
 
 FORMS += \
     mainwindow.ui
