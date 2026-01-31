@@ -10,6 +10,7 @@ CONFIG += c++17
 
 HEADERS += \
     circle.h \
+    hexagon.h \
     polygon.h \
     quadrilateral.h \
     rectangle.h \
@@ -21,6 +22,7 @@ HEADERS += \
 
 SOURCES += \
     circle.cpp \
+    hexagon.cpp \
     polygon.cpp \
     quadrilateral.cpp \
     rectangle.cpp \
