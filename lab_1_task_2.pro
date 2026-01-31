@@ -11,6 +11,7 @@ CONFIG += c++17
 HEADERS += \
     circle.h \
     polygon.h \
+    quadrilateral.h \
     shape.h \
     mainwindow.h \
     triangle.h
@@ -18,6 +19,7 @@ HEADERS += \
 SOURCES += \
     circle.cpp \
     polygon.cpp \
+    quadrilateral.cpp \
     shape.cpp \
     main.cpp \
     mainwindow.cpp \
