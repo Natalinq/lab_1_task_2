@@ -12,6 +12,7 @@ HEADERS += \
     circle.h \
     polygon.h \
     quadrilateral.h \
+    rectangle.h \
     shape.h \
     mainwindow.h \
     triangle.h
@@ -20,6 +21,7 @@ SOURCES += \
     circle.cpp \
     polygon.cpp \
     quadrilateral.cpp \
+    rectangle.cpp \
     shape.cpp \
     main.cpp \
     mainwindow.cpp \
