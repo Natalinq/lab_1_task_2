@@ -1,58 +1,41 @@
-# Qt Creator
-*.pro.user
-*.pro.user.*
-*.autosave
-*.files
-*.includes
+# Prerequisites
+*.d
 
-# Build directories
-build/
-build-*/
-*-build-*/
-debug/
-release/
-CMakeFiles/
-CMakeCache.txt
-Makefile*
-
-# Compiled files
+# Compiled Object files
+*.slo
+*.lo
 *.o
-*.a
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Linker files
+*.ilk
+
+# Debugger Files
+*.pdb
+
+# Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
-*.exe
-*.app
-*.ilk
-*.pdb
-*.idb
-*.exp
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
 *.lib
-*.manifest
 
-# Qt generated files
-moc_*.cpp
-qrc_*.cpp
-ui_*.h
-*.qrc.depends
-*.qrc.timestamp
+# Executables
+*.exe
+*.out
+*.app
 
-# IDE
-.vscode/
-.idea/
-
-# Clangd cache
-.qtc_clangd/
-.clangd/
-compile_commands.json
-
-# OS files
-Thumbs.db
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
+# debug information files
+*.dwo
