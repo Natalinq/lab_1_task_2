@@ -13,8 +13,10 @@ HEADERS += \
     polygon.h \
     quadrilateral.h \
     rectangle.h \
+    rhombus.h \
     shape.h \
     mainwindow.h \
+    square.h \
     triangle.h
 
 SOURCES += \
@@ -22,9 +24,11 @@ SOURCES += \
     polygon.cpp \
     quadrilateral.cpp \
     rectangle.cpp \
+    rhombus.cpp \
     shape.cpp \
     main.cpp \
     mainwindow.cpp \
+    square.cpp \
     triangle.cpp
 
 FORMS += \
